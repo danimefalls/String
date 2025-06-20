@@ -11,4 +11,21 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inputText: EditText
     private lateinit var countButton: Button
     private lateinit var resultText: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        inputText = findViewById(R.id.inputText)
+        countButton = findViewById(R.id.countButton)
+        resultText = findViewById(R.id.resultText)
+
+        countButton.setOnClickListener {
+            val input = inputText.text.toString()
+            val count = countLatinLetters(input)
+            resultText.text = "Количество латинских букв: $count"
+        }
+    }
+
+
 }
